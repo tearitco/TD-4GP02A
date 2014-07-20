@@ -1,0 +1,26 @@
+.td4-ctrl fieldset {
+    margin: 8px;
+    padding: 4px;
+    height: 68px;
+    float: left;
+    display: inline;
+    white-space: nowrap;
+}
+
+.td4-ctrl input {
+    margin: 4px;
+    padding: 4px;
+}
+
+.td4-ctrl-show-wires input,
+.td4-ctrl-inp input {
+    margin: 6px;
+    margin-top: 10px;
+    padding: 4px;
+}
+
+.td4-ctrl-outp canvas {
+    margin: 4px;
+    margin-top: 8px;
+}
+

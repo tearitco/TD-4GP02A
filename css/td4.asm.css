@@ -1,0 +1,47 @@
+.td4-asm {
+    clear: both;
+}
+
+.td4-asm fieldset {
+    margin: 8px;
+    padding: 4px;
+    float: left;
+    display: inline;
+    white-space: nowrap;
+}
+
+.td4-asm-code-table select {
+    margin: 2px;
+    width: 60px;
+}
+
+select.td4-asm-code-table-sample {
+    margin: 8px;
+    width: 200px;
+}
+
+.td4-asm-code-table select[disabled] {
+    background-color: #DDD;
+}
+
+.td4-asm-code-table span {
+    margin: 2px;
+}
+
+.td4-asm-assembler input {
+    margin: 8px;
+    padding: 4px;
+}
+
+textarea.td4-asm-editor {
+    margin: 4px;
+    display: block;
+    resize: none;
+}
+
+textarea.td4-asm-console {
+    margin: 4px;
+    background: black;
+    color: white;
+    resize: none;
+}

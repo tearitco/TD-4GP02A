@@ -1,0 +1,55 @@
+/*
+ * td4.shell.css
+ * Shell styles
+ */
+
+.td4-shell-head, .td4-shell-main, .td4-shell-main-left, .td4-shell-main-right, .td4-shell-foot {
+    position : absolute;
+}
+
+.td4-shell-head {
+    top    : 0;
+    left   : 0;
+    right  : 0;
+    height : 40px;
+    color: #FFF;
+    background: #000;
+}
+
+.td4-shell-head h1 {
+    margin-top: 4px;
+    margin-left: 20px;
+}
+
+.td4-shell-main {
+    top    : 40px;
+    left   : 0;
+    bottom : 40px;
+    right  : 0;
+}
+
+.td4-shell-main-left,
+.td4-shell-main-right {
+    top    : 0;
+    bottom : 0;
+}
+
+.td4-shell-main-left {
+    width  : 808px;
+    background : #ddd;
+}
+
+.td4-shell-main-right {
+    left  : 808px;
+    right : 0;
+    background : #eee;
+}
+
+.td4-shell-foot {
+    bottom : 0;
+    left   : 0;
+    right  : 0;
+    height : 40px;
+    padding: 4px;
+    text-align: right;
+}
