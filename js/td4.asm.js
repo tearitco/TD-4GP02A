@@ -610,6 +610,8 @@ td4.asm = (function ()
             jq.$opcodes[addr].val( addr + ',mov' );
             jq.$arg1[addr].val( addr + ',a' );
             jq.$arg2[addr].val( addr + ',' + im );
+
+            jq.$arg2[addr].find( 'option[value="' + addr + ',a"]' ).remove();
             break;
 
 
@@ -653,6 +655,8 @@ td4.asm = (function ()
             jq.$opcodes[addr].val( addr + ',mov' );
             jq.$arg1[addr].val( addr + ',b' );
             jq.$arg2[addr].val( addr + ',' + im );
+
+            jq.$arg2[addr].find( 'option[value="' + addr + ',b"]' ).remove();
             break;
 
 
@@ -805,7 +809,40 @@ td4.asm = (function ()
 
 
 
-    function onArgChange ()
+    function onArg1Change ()
+    {
+        var i, a, bin, arg1;
+
+        a = $(this).val().split( ',' );
+        i = parseInt( a[0], 10 );
+
+        if ( jq.$opcodes[i].val() === (i + ',mov') )
+        {
+            if ( jq.$arg2[i].children( 'option' ).length === 17 ) {
+                arg1 = jq.$arg1[i].val().split( ',' )[1];
+
+                jq.$arg2[i].find( 'option:first' ).remove();
+
+                if ( arg1 === 'a' ) {
+                    jq.$arg2[i].prepend( $( '<option>B</option>' ).val( i + ',b' ) );
+                } else {
+                    jq.$arg2[i].prepend( $( '<option>A</option>' ).val( i + ',a' ) );
+                }
+            }
+        }
+
+        bin = getBinaryCode( i );
+
+        if ( bin !== null ) {
+            setCode( i, bin );
+        }
+
+        jq.$sample.val( 'custom' );
+    }
+
+
+
+    function onArg2Change ()
     {
         var i, a, bin;
 
@@ -985,8 +1022,8 @@ td4.asm = (function ()
         for ( i = 0; i < MAX_PC; i++ )
         {
             jq.$opcodes[i].change( onOpcodeChange );
-            jq.$arg1[i].change( onArgChange );
-            jq.$arg2[i].change( onArgChange );
+            jq.$arg1[i].change( onArg1Change );
+            jq.$arg2[i].change( onArg2Change );
         }
 
         jq.$codeTbl[0].css( 'background-color', '#ABBFFE' );

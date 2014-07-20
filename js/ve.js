@@ -1723,25 +1723,14 @@ var ve = (function ()
 
         AutoPath.prototype.setClockListener = function ( clock )
         {
-            var i, name, pinName, cns;
+            var i;
 
-            for ( name in elems ) {
-                if ( elems.hasOwnProperty( name ) ) {
-                    cns = elems[name].cn;
-
-                    for ( pinName in cns ) {
-                        if ( cns.hasOwnProperty( pinName ) ) {
-                            clock.addClockListener( cns[pinName] );
-                        }
-                    }
-                }
-            }
+            clock.addClockListener( this );
 
             for ( i = 0; i < this.paths.length; i++ ) {
                 if ( this.paths[i].contains( clock.cn.CK ) ) {
                     this.paths[i].setClockPath();
-                } else {
-                    clock.addClockListener( this.paths[i] );
+                    break;
                 }
             }
         };
@@ -1765,6 +1754,26 @@ var ve = (function ()
 
             for ( i = 0; i < this.paths.length; i++ ) {
                 this.paths[i].draw();
+            }
+        };
+
+
+        AutoPath.prototype.onClock = function ( s )
+        {
+            var i, wireName, cns;
+
+            for ( i = 0; i < this.paths.length; i++ ) {
+                this.paths[i].onClock( s );
+            }
+
+            for ( wireName in this.wire2cn ) {
+                if ( this.wire2cn.hasOwnProperty( wireName ) ) {
+                    cns = this.wire2cn[wireName];
+
+                    for ( i = 1; i < cns.length; i++ ) {
+                        cns[i].onClock( s );
+                    }
+                }
             }
         };
 

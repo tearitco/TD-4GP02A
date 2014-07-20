@@ -821,12 +821,22 @@ td4.schematic = (function ()
 
     function writeCode ( addr, data )
     {
+        var path;
+
         if ( ! ( addr >= 0 && addr < MAX_PC && data >= 0 && data < 256 ) ) {
             console.log( '[schematic] write code error: addr = ' + addr + ', data = ' + data );
             return;
         }
 
         elems.rom.store( addr, data );
+
+        if ( stateMap.currentPc === addr ) {
+            elems.rom.action();
+            ec.start();
+
+            paths.onClock( 1 );
+            ec.start();
+        }
     }
 
 
