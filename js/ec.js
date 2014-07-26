@@ -499,7 +499,7 @@ var ec = (function () {
                 }
 
                 if ( this.isInput() && p.isInput() ) {
-                    error( "couldn't connect. output <=> output" );
+                    error( "couldn't connect. input <=> input" );
                 }
 
                 if ( this.out && ! p.out )
