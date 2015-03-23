@@ -1,0 +1,187 @@
+/*
+ * td4.css
+ * Root namespace styles
+ */
+
+/** Begin reset */
+
+* {
+    margin  : 0;
+    padding : 0;
+    -webkit-box-sizing : border-box;
+    -moz-box-sizing    : border-box;
+    box-sizing         : border-box;
+}
+
+h1,h2,h3,h4,h5,h6,p { margin-bottom : 10px; }
+
+ol,ul,dl { list-style-position : inside;}
+
+/** End reset */
+
+body {
+    font : 13px 'Trebuchet MS', Verdana, Helvetica, Arial, sans-serif;
+    color            : #444;
+    background-color : #888;
+}
+
+a { text-decoration : none; }
+
+a:link, a:visited { color : inherit; }
+
+a:hover { text-decoration: underline; }
+
+strong {
+    font-weight : 800;
+    color       : #000;
+}
+
+#td4 {
+    position : absolute;
+    top      : 8px;
+    left     : 8px;
+    bottom   : 8px;
+    right    : 8px;
+
+    min-width  : 1200px;
+    min-height : 950px;
+    overflow   : hidden;
+
+    background-color : #fff;
+    border-radius    : 0 8px 0 8px;
+}
+/*
+ * td4.shell.css
+ * Shell styles
+ */
+
+.td4-shell-head, .td4-shell-main, .td4-shell-main-left, .td4-shell-main-right, .td4-shell-foot {
+    position : absolute;
+}
+
+.td4-shell-head {
+    top    : 0;
+    left   : 0;
+    right  : 0;
+    height : 40px;
+    color: #FFF;
+    background: #000;
+}
+
+.td4-shell-head h1 {
+    margin-top: 4px;
+    margin-left: 20px;
+}
+
+.td4-shell-main {
+    top    : 40px;
+    left   : 0;
+    bottom : 40px;
+    right  : 0;
+}
+
+.td4-shell-main-left,
+.td4-shell-main-right {
+    top    : 0;
+    bottom : 0;
+}
+
+.td4-shell-main-left {
+    width  : 808px;
+    background : #ddd;
+}
+
+.td4-shell-main-right {
+    left  : 808px;
+    right : 0;
+    background : #eee;
+}
+
+.td4-shell-foot {
+    bottom : 0;
+    left   : 0;
+    right  : 0;
+    height : 40px;
+    padding: 4px;
+    text-align: right;
+}
+.td4-schematic-canvas {
+    background: #ffffff;
+    -webkit-box-shadow: 4px 4px 8px rgba(0,0,0,0.5);
+    -moz-box-shadow   : 4px 4px 8px rgba(0,0,0,0.5);
+    box-shadow        : 4px 4px 8px rgba(0,0,0,0.5);
+}
+.td4-ctrl fieldset {
+    margin: 8px;
+    padding: 4px;
+    height: 68px;
+    float: left;
+    display: inline;
+    white-space: nowrap;
+}
+
+.td4-ctrl input {
+    margin: 4px;
+    padding: 4px;
+}
+
+.td4-ctrl-show-wires input,
+.td4-ctrl-inp input {
+    margin: 6px;
+    margin-top: 10px;
+    padding: 4px;
+}
+
+.td4-ctrl-outp canvas {
+    margin: 4px;
+    margin-top: 8px;
+}
+
+.td4-asm {
+    clear: both;
+}
+
+.td4-asm fieldset {
+    margin: 8px;
+    padding: 4px;
+    float: left;
+    display: inline;
+    white-space: nowrap;
+}
+
+.td4-asm-code-table select {
+    margin: 2px;
+    width: 60px;
+}
+
+select.td4-asm-code-table-sample {
+    margin: 8px;
+    width: 200px;
+}
+
+.td4-asm-code-table select[disabled] {
+    background-color: #DDD;
+}
+
+.td4-asm-code-table span {
+    margin: 2px;
+}
+
+.td4-asm-assembler input {
+    margin: 8px;
+    padding: 4px;
+}
+
+textarea.td4-asm-editor {
+    margin: 4px;
+    display: block;
+    resize: none;
+}
+
+textarea.td4-asm-console {
+    margin: 4px;
+    background: black;
+    color: white;
+    resize: none;
+}
+
